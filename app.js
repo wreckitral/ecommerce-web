@@ -2,6 +2,7 @@ const path = require('path');
 
 const express = require('express');
 const expressSession = require('express-session');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
 const db = require('./data/database');
@@ -14,8 +15,11 @@ const productsRoutes = require('./routes/products-routes');
 const baseRoutes = require('./routes/base-routes');
 const doubleCsrfProtection = require('./config/csrf');
 const adminRoutes = require('./routes/admin-routes');
+const SESSION = new Map();
 
 const app = express();
+
+app.use(cors());
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
