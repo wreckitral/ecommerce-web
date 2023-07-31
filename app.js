@@ -15,7 +15,6 @@ const productsRoutes = require('./routes/products-routes');
 const baseRoutes = require('./routes/base-routes');
 const doubleCsrfProtection = require('./config/csrf');
 const adminRoutes = require('./routes/admin-routes');
-const SESSION = new Map();
 
 const app = express();
 
@@ -32,12 +31,13 @@ app.use(expressSession(sessionConfig));
 
 app.use(cookieParser('supersecretbanget'));
 
+app.use('/admin', adminRoutes);
+
 app.use(doubleCsrfProtection);
 app.use(addCsrfTokenMiddleware);
 
 app.use(checkAuthStatusMiddleware);
 
-app.use('/admin', adminRoutes);
 app.use(baseRoutes);
 app.use(authRoutes);
 app.use(productsRoutes);
