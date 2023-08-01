@@ -31,12 +31,12 @@ app.use(expressSession(sessionConfig));
 
 app.use(cookieParser('supersecretbanget'));
 
+app.use(checkAuthStatusMiddleware);
+
 app.use('/admin', adminRoutes);
 
 app.use(doubleCsrfProtection);
 app.use(addCsrfTokenMiddleware);
-
-app.use(checkAuthStatusMiddleware);
 
 app.use(baseRoutes);
 app.use(authRoutes);

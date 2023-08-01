@@ -9,7 +9,7 @@ function getNewProduct(req, res) {
 function setNewProduct(req, res) {
     console.log(req.body);
     console.log(req.file);
-
+    
     res.redirect('/admin/products');
 }
 
