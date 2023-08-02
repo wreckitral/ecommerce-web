@@ -13,7 +13,7 @@ const createSessionConfig = require('./config/session');
 const authRoutes = require('./routes/auth-routes');
 const productsRoutes = require('./routes/products-routes');
 const baseRoutes = require('./routes/base-routes');
-const doubleCsrfProtection = require('./config/csrf');
+const { doubleCsrfProtection } = require('./config/csrf');
 const adminRoutes = require('./routes/admin-routes');
 
 const app = express();
