@@ -8,7 +8,7 @@ const {
     cookieName: 'x-csrf-token', // The name of the cookie to be used, recommend using Host prefix.
     cookieOptions: {
         secure: false,
-        maxAge: 172800  
+        maxAge: 172800,
     },
     getTokenFromRequest: (req) =>  req.body['csrfToken']
 });
@@ -16,5 +16,5 @@ const {
 
 module.exports = {
     doubleCsrfProtection: doubleCsrfProtection,
-    generateToken: generateToken
+    generateToken: generateToken    
 }
